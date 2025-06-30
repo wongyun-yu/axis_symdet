@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
-  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+        content="Axis-level Symmetry Detection with Group-Equivariant Representation for robust and accurate axis-level symmetry detection in complex scenes.">
+  <meta name="keywords" content="Symmetry Detection, Group Equivariance, Computer Vision">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nerfies: Deformable Neural Radiance Fields</title>
+  <title>Axis-level Symmetry Detection with Group-Equivariant Representation</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -28,14 +28,15 @@
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/favicon.svg">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
+
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
@@ -52,120 +53,61 @@
   </div>
   <div class="navbar-menu">
     <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://keunhong.com">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
-      </a>
 
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More Research
-        </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://hypernerf.github.io">
-            HyperNeRF
-          </a>
-          <a class="navbar-item" href="https://nerfies.github.io">
-            Nerfies
-          </a>
-          <a class="navbar-item" href="https://latentfusion.github.io">
-            LatentFusion
-          </a>
-          <a class="navbar-item" href="https://photoshape.github.io">
-            PhotoShape
-          </a>
-        </div>
-      </div>
     </div>
 
   </div>
 </nav>
 
 
-<section class="hero">
-  <div class="hero-body">
+<section class="hero" style="padding-top: 2rem;">
+  <div class="hero-body" style="padding-top: 1rem;">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Nerfies: Deformable Neural Radiance Fields</h1>
+          <h1 class="title is-1 publication-title">Axis-level Symmetry Detection with Group-Equivariant Representation</h1>
           <div class="is-size-5 publication-authors">
+            <span class="author-block" style="margin-right: 40px;">
+              <a href="https://201820894.github.io">Wongyun Yu</a><sup>1,2</sup></span>
+            <span class="author-block" style="margin-right: 40px;">
+              <a href="https://ahyunseo.github.io">Ahyun Seo</a><sup>1</sup></span>
             <span class="author-block">
-              <a href="https://keunhong.com">Keunhong Park</a><sup>1</sup>,</span>
-            <span class="author-block">
-              <a href="https://utkarshsinha.com">Utkarsh Sinha</a><sup>2</sup>,</span>
-            <span class="author-block">
-              <a href="https://jonbarron.info">Jonathan T. Barron</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="http://sofienbouaziz.com">Sofien Bouaziz</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://www.danbgoldman.com">Dan B Goldman</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://homes.cs.washington.edu/~seitz/">Steven M. Seitz</a><sup>1,2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="http://www.ricardomartinbrualla.com">Ricardo Martin-Brualla</a><sup>2</sup>
+              <a href="https://cvlab.postech.ac.kr/~mcho/">Minsu Cho</a><sup>1,2</sup>
             </span>
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>University of Washington,</span>
-            <span class="author-block"><sup>2</sup>Google Research</span>
+            <span class="author-block"><sup>1</sup>Department of Computer Science and Engineering, POSTECH, South Korea</span>
+            <br>
+            <span class="author-block"><sup>2</sup>Graduate School of Artificial Intelligence, POSTECH, South Korea</span>
+          </div>
+
+          <div class="is-size-6 publication-authors" style="text-align: center; margin: 15px 0;">
+            <span class="venue-block">International Conference on Computer Vision (ICCV), 2025</span>
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
-              <!-- PDF Link. -->
+              <!-- arXiv Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2011.12948"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href="https://arxiv.org/abs/2011.12948"
-                   class="external-link button is-normal is-rounded is-dark">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark is-disabled">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
                   </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-              <!-- Video Link. -->
-              <span class="link-block">
-                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
+                  <span>arXiv (Coming Soon)</span>
                 </a>
               </span>
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/google/nerfies"
-                   class="external-link button is-normal is-rounded is-dark">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark is-disabled">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
-                  <span>Code</span>
+                  <span>Code (Coming Soon)</span>
                   </a>
               </span>
-              <!-- Dataset Link. -->
-              <span class="link-block">
-                <a href="https://github.com/google/nerfies/releases/tag/0.1"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Data</span>
-                  </a>
             </div>
 
           </div>
@@ -175,76 +117,14 @@
   </div>
 </section>
 
-<section class="hero teaser">
+<section class="hero teaser" style="padding-bottom: 1rem;">
   <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
-                type="video/mp4">
-      </video>
+    <div class="hero-body" style="padding-bottom: 1rem;">
+      <img src="./static/images/rotation_robustness.png" alt="Method robustness demonstration" style="width: 100%; max-width: 600px; display: block; margin: 0 auto 30px auto;">
       <h2 class="subtitle has-text-centered">
-        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
-        free-viewpoint
-        portraits.
+        Our method predicts axis-level rotation and reflection symmetries in complex scenes,
+        maintaining consistent detection across different input rotations through group-equivariant representations.
       </h2>
-    </div>
-  </div>
-</section>
-
-
-<section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/steve.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/chair-tp.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/shiba.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/fullbody.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-blueshirt">
-          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/blueshirt.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-mask">
-          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/mask.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-coffee">
-          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/coffee.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-toby">
-          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/toby2.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -258,197 +138,370 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present the first method capable of photorealistically reconstructing a non-rigidly
-            deforming scene using photos/videos captured casually from mobile phones.
-          </p>
-          <p>
-            Our approach augments neural radiance fields
-            (NeRF) by optimizing an
-            additional continuous volumetric deformation field that warps each observed point into a
-            canonical 5D NeRF.
-            We observe that these NeRF-like deformation fields are prone to local minima, and
-            propose a coarse-to-fine optimization method for coordinate-based models that allows for
-            more robust optimization.
-            By adapting principles from geometry processing and physical simulation to NeRF-like
-            models, we propose an elastic regularization of the deformation field that further
-            improves robustness.
-          </p>
-          <p>
-            We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
-            photos/videos into deformable NeRF
-            models that allow for photorealistic renderings of the subject from arbitrary
-            viewpoints, which we dub <i>"nerfies"</i>. We evaluate our method by collecting data
-            using a
-            rig with two mobile phones that take time-synchronized photos, yielding train/validation
-            images of the same pose at different viewpoints. We show that our method faithfully
-            reconstructs non-rigidly deforming scenes and reproduces unseen views with high
-            fidelity.
+            Symmetry is a fundamental concept that has been studied extensively; however, its detection in complex scenes remains challenging in computer vision. Recent heatmap-based methods identify potential regions of symmetry axes but lack precision for individual axis. In this work, we introduce a novel framework for axis-level detection of the most common symmetry types—reflection and rotation—representing them as explicit geometric primitives <i>i.e.</i>, lines and points.
+            We formulate a dihedral group-equivariant dual-branch architecture, where each branch exploits the properties of dihedral group-equivariant features in a novel, specialized manner for each symmetry type. Specifically, for reflection symmetry, we propose <strong>orientational anchors</strong> aligned with group components to enable orientation-specific detection, and <strong>reflectional matching</strong> that computes similarity between patterns and their mirrored counterparts across potential reflection axes.
+            For rotational symmetry, we propose <strong>rotational matching</strong> that computes the similarity between patterns at fixed angular intervals. Extensive experiments demonstrate that our method significantly outperforms state-of-the-art methods.
           </p>
         </div>
       </div>
     </div>
     <!--/ Abstract. -->
-
-    <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-    <!--/ Paper video. -->
   </div>
 </section>
 
 
-<section class="section">
+<section class="section" style="padding-top: 3rem;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Method Overview</h2>
+        <div class="has-text-centered">
+          <img src="./static/images/main_architecture.png" alt="Overall network architecture" style="width: 100%; max-width: 1000px; display: block; margin: 0 auto;">
+        </div>
+        <div class="content has-text-justified" style="margin-top: 20px;">
+          <p>
+            Our framework introduces a D<sub>N</sub>-equivariant network for axis-level symmetry detection, modeling reflection axes as line segments and rotation axes as points. The dual-branch architecture uses a dihedral group-equivariant backbone to extract features, then processes them through specialized branches: the reflection branch predicts midpoint, orientation, and length of reflection axes using orientational anchor expansion and reflectional matching, while the rotation branch predicts location and fold class of rotation centers using rotational matching at fixed angular intervals.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" style="padding-top: 3rem;">
   <div class="container is-max-desktop">
 
     <div class="columns is-centered">
 
-      <!-- Visual Effects. -->
+      <!-- Orientational Anchor Expansion. -->
       <div class="column">
         <div class="content">
-          <h2 class="title is-3">Visual Effects</h2>
-          <p>
-            Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
-            would be impossible without nerfies since it would require going through a wall.
-          </p>
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/dollyzoom-stacked.mp4"
-                    type="video/mp4">
-          </video>
+          <h2 class="title is-3">Orientational Anchors</h2>
+                      <p>
+              Inspired by anchor boxes in detection, we treat each pixel as an anchor for potential symmetry axes and introduce <strong>orientational anchors</strong> to integrate the group dimension into the detection framework. This approach enables directionally specialized axis detection and improved handling of axes with overlapping midpoints but different orientations. We aggregate reflection counterpart pairs from D<sub>N</sub>-equivariant features and construct orientational anchors that specialize in detecting axes within specific orientation ranges.
+            </p>
+                      <div class="has-text-centered" style="margin-top: 50px;">
+              <img src="./static/images/orientational_anchor.png" alt="Orientational anchor expansion mechanism" style="width: 100%; max-width: 600px; display: block; margin: 0 auto;">
+            </div>
         </div>
       </div>
-      <!--/ Visual Effects. -->
+      <!--/ Orientational Anchor Expansion. -->
 
-      <!-- Matting. -->
+      <!-- Symmetry Matching. -->
       <div class="column">
-        <h2 class="title is-3">Matting</h2>
+        <h2 class="title is-3">Matching Modules</h2>
         <div class="columns is-centered">
           <div class="column content">
             <p>
-              As a byproduct of our method, we can also solve the matting problem by ignoring
-              samples that fall outside of a bounding box during rendering.
+              Our framework leverages D<sub>N</sub>-equivariant features for symmetry validation through two specialized matching modules. <strong>Reflectional matching</strong> compares patterns with their mirrored counterparts across different orientations, providing strong cues for reflection symmetry detection. <strong>Rotational matching</strong> compares patterns with their rotated versions at fixed angular separations, exploiting the consistency of feature comparisons to identify rotational symmetries with reduced computational redundancy.
             </p>
-            <video id="matting-video" controls playsinline height="100%">
-              <source src="./static/videos/matting.mp4"
-                      type="video/mp4">
-            </video>
+                         <div class="has-text-centered">
+               <img src="./static/images/matching_module.png" alt="Reflectional and rotational matching modules" style="width: 100%; max-width: 600px; display: block; margin: 0 auto;">
+             </div>
           </div>
 
         </div>
       </div>
     </div>
-    <!--/ Matting. -->
+    <!--/ Symmetry Matching. -->
 
-    <!-- Animation. -->
-    <div class="columns is-centered">
+    <!-- Results. -->
+    <div class="columns is-centered" style="margin-top: 3rem;">
       <div class="column is-full-width">
-        <h2 class="title is-3">Animation</h2>
+        <h2 class="title is-3">Results</h2>
 
-        <!-- Interpolating. -->
-        <h3 class="title is-4">Interpolating states</h3>
+        <!-- Qualitative Results. -->
+        <h3 class="title is-4">Qualitative Evaluation</h3>
         <div class="content has-text-justified">
           <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
-          </p>
-        </div>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_start.jpg"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
-          </div>
-          <div class="column interpolation-video-column">
-            <div id="interpolation-image-wrapper">
-              Loading...
-            </div>
-            <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider"
-                   step="1" min="0" max="100" value="0" type="range">
-          </div>
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_end.jpg"
-                 class="interpolation-image"
-                 alt="Interpolation end reference image."/>
-            <p class="is-bold">End Frame</p>
-          </div>
-        </div>
-        <br/>
-        <!--/ Interpolating. -->
-
-        <!-- Re-rendering. -->
-        <h3 class="title is-4">Re-rendering the input video</h3>
-        <div class="content has-text-justified">
-          <p>
-            Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
-            viewpoint such as a stabilized camera by playing back the training deformations.
+            Our method demonstrates superior performance in detecting both reflection and rotation symmetries across diverse scenes. The results show accurate axis-level detection with robust performance across different object types and scene complexities.
           </p>
         </div>
         <div class="content has-text-centered">
-          <video id="replay-video"
-                 controls
-                 muted
-                 preload
-                 playsinline
-                 width="75%">
-            <source src="./static/videos/replay.mp4"
-                    type="video/mp4">
-          </video>
+          <img src="./static/images/qualitative_comparison.png" alt="Qualitative comparison with state-of-the-art methods" style="width: 100%; max-width: 1200px; display: block; margin: 0 auto;">
         </div>
-        <!--/ Re-rendering. -->
+        <br/>
+        <!--/ Qualitative Results. -->
 
-      </div>
-    </div>
-    <!--/ Animation. -->
+        <!-- Quantitative Results. -->
+        <h3 class="title is-4">Quantitative Evaluation</h3>
+        
+        <!-- Ablation Studies -->
+        <h4 class="title is-5" style="margin-top: 2rem;">Ablation Studies</h4>
+        
+        <h5 class="title is-6">Reflection Symmetry Detection</h5>
+        <table class="academic-table">
+          <thead>
+            <tr>
+              <th class="method-col">Method</th>
+              <th colspan="3">Ref. sAP (%)</th>
+            </tr>
+            <tr class="midrule">
+              <th></th>
+              <th>@5</th>
+              <th>@10</th>
+              <th>@15</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="method-col">Axis-level detection</td>
+              <td>6.2</td>
+              <td>9.3</td>
+              <td>11.2</td>
+            </tr>
+            <tr>
+              <td class="method-col">+ Orientational anchors</td>
+              <td>16.6</td>
+              <td>19.9</td>
+              <td>21.1</td>
+            </tr>
+            <tr>
+              <td class="method-col">+ Ref. match<sub>k=0</sub></td>
+              <td>17.6</td>
+              <td>20.7</td>
+              <td>21.8</td>
+            </tr>
+            <tr>
+              <td class="method-col">+ Ref. match<sub>k=0,1</sub></td>
+              <td>18.4</td>
+              <td>22.0</td>
+              <td>23.7</td>
+            </tr>
+            <tr class="highlight-row">
+              <td class="method-col">+ Ref. match<sub>k=0,1,2</sub></td>
+              <td><strong>18.8</strong></td>
+              <td><strong>22.7</strong></td>
+              <td><strong>24.7</strong></td>
+            </tr>
+          </tbody>
+        </table>
 
+        <h5 class="title is-6" style="margin-top: 2rem;">Rotation Symmetry Detection</h5>
+        <table class="academic-table">
+          <thead>
+            <tr>
+              <th class="method-col">Method</th>
+              <th colspan="3">Center sAP <span class="small-text">(Fold sAP)</span> (%)</th>
+            </tr>
+            <tr class="midrule">
+              <th></th>
+              <th>@5</th>
+              <th>@10</th>
+              <th>@15</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="method-col">Axis-level detection</td>
+              <td>31.5 <span class="small-text">(22.5)</span></td>
+              <td>34.7 <span class="small-text">(24.6)</span></td>
+              <td>35.7 <span class="small-text">(25.3)</span></td>
+            </tr>
+            <tr>
+              <td class="method-col">+ Rot. match<sub>k=0</sub></td>
+              <td>35.9 <span class="small-text">(25.9)</span></td>
+              <td>37.8 <span class="small-text">(27.0)</span></td>
+              <td>37.0 <span class="small-text">(26.4)</span></td>
+            </tr>
+            <tr>
+              <td class="method-col">+ Rot. match<sub>k=0,1</sub></td>
+              <td>36.2 <span class="small-text">(26.1)</span></td>
+              <td>38.7 <span class="small-text">(27.7)</span></td>
+              <td>39.6 <span class="small-text">(28.3)</span></td>
+            </tr>
+            <tr class="highlight-row">
+              <td class="method-col">+ Rot. match<sub>k=0,1,2</sub></td>
+              <td><strong>36.8</strong> <span class="small-text">(<strong>26.6</strong>)</span></td>
+              <td><strong>39.1</strong> <span class="small-text">(<strong>28.3</strong>)</span></td>
+              <td><strong>40.0</strong> <span class="small-text">(<strong>28.9</strong>)</span></td>
+            </tr>
+          </tbody>
+        </table>
 
-    <!-- Concurrent Work. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Related Links</h2>
-
+        <!-- State-of-the-art Comparison -->
+        <h4 class="title is-5" style="margin-top: 3rem;">Comparison with State-of-the-art</h4>
         <div class="content has-text-justified">
           <p>
-            There's a lot of excellent work that was introduced around the same time as ours.
-          </p>
-          <p>
-            <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
-          </p>
-          <p>
-            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
-            both use deformation fields to model non-rigid scenes.
-          </p>
-          <p>
-            Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
-          </p>
-          <p>
-            There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
+            F1-score comparison shows superior performance, achieving +4.4% improvement in rotation symmetry detection on DENDI. For fair comparison with heatmap-based methods, we convert our axis-level detections to heatmaps.
           </p>
         </div>
+        
+        <table class="academic-table">
+          <thead>
+            <tr>
+              <th class="method-col">Method</th>
+              <th colspan="3">Reflection Symmetry</th>
+              <th>Rotation Symmetry</th>
+            </tr>
+            <tr class="midrule">
+              <th></th>
+              <th>SDRW</th>
+              <th>LDRS</th>
+              <th>DENDI</th>
+              <th>DENDI</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="method-col">PMCNet</td>
+              <td><strong>68.8</strong></td>
+              <td>64.2</td>
+              <td>69.1</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td class="method-col">EquiSym</td>
+              <td>-</td>
+              <td>-</td>
+              <td>68.4</td>
+              <td>53.6</td>
+            </tr>
+            <tr class="highlight-row">
+              <td class="method-col"><strong>Ours</strong></td>
+              <td>68.3</td>
+              <td><strong>67.6</strong></td>
+              <td><strong>69.6</strong></td>
+              <td><strong>58.0</strong></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Precision-Recall Analysis -->
+        <h4 class="title is-5" style="margin-top: 2rem;">Precision-Recall Analysis</h4>
+        <div class="content has-text-justified">
+          <p>
+            Precision-recall curves demonstrate our method's superior performance across multiple datasets. The F1-score vs padding analysis on SDRW shows that our axis-level approach outperforms PMCNet's region-based predictions when evaluation criteria become more stringent, demonstrating more precise axis localization.
+          </p>
+        </div>
+        
+        <div class="columns is-multiline" style="margin-bottom: 0;">
+          <div class="column is-one-fifth">
+            <div class="has-text-centered">
+              <p class="subtitle is-6" style="text-align: center; margin-bottom: 0.3rem; margin-left: 32px"><strong>SDRW (Ref.)</strong></p>
+              <img src="./static/images/pr_curves_sdrw_ref.png" alt="PR curve for SDRW reflection symmetry" style="width: 100%; max-width: 200px;">
+            </div>
+          </div>
+          <div class="column is-one-fifth">
+            <div class="has-text-centered">
+              <p class="subtitle is-6" style="text-align: center; margin-bottom: 0.3rem; margin-left: 32px"><strong>LDRS (Ref.)</strong></p>
+              <img src="./static/images/pr_curves_ldrs_ref.png" alt="PR curve for LDRS reflection symmetry" style="width: 100%; max-width: 200px;">
+            </div>
+          </div>
+          <div class="column is-one-fifth">
+            <div class="has-text-centered">
+              <p class="subtitle is-6" style="text-align: center; margin-bottom: 0.3rem; margin-left: 32px"><strong>DENDI (Ref.)</strong></p>
+              <img src="./static/images/pr_curves_dendi_ref.png" alt="PR curve for DENDI reflection symmetry" style="width: 100%; max-width: 200px;">
+            </div>
+          </div>
+          <div class="column is-one-fifth">
+            <div class="has-text-centered">
+              <p class="subtitle is-6" style="text-align: center; margin-bottom: 0.3rem; margin-left: 32px"><strong>DENDI (Rot.)</strong></p>
+              <img src="./static/images/pr_curves_dendi_rot.png" alt="PR curve for DENDI rotation symmetry" style="width: 100%; max-width: 200px;">
+            </div>
+          </div>
+          <div class="column is-one-fifth">
+            <div class="has-text-centered">
+              <p class="subtitle is-6" style="text-align: center; margin-bottom: 0.3rem; margin-left: 32px; margin-top: -20px;"><strong>F1 vs Padding<br/>(LDRS)</strong></p>
+              <img src="./static/images/f1_padding_sdrw.png" alt="F1-score vs padding analysis" style="width: 100%; max-width: 200px;">
+            </div>
+          </div>
+        </div>
+
+        <!-- Legend -->
+        <div class="has-text-centered" style="margin-top: -0.5rem;">
+          <img src="./static/images/legend.png" alt="Legend for PR curves" style="width: auto; max-width: 250px;">
+        </div>
+
+
+        
+        <style>
+          .academic-table {
+            border-collapse: collapse;
+            width: 80%;
+            max-width: 600px;
+            margin: 1rem auto;
+            background: white;
+            font-size: 0.95rem;
+          }
+          .academic-table th, .academic-table td {
+            padding: 8px 12px;
+            text-align: center;
+            border: none;
+          }
+          .academic-table th {
+            font-weight: 600;
+            border-bottom: 2px solid #333;
+            border-top: 2px solid #333;
+            text-align: center;
+          }
+          .academic-table .method-col {
+            text-align: left;
+            padding-left: 16px;
+          }
+          .academic-table th.method-col {
+            text-align: left;
+            padding-left: 16px;
+          }
+          .academic-table th:not(.method-col) {
+            text-align: center;
+          }
+          .academic-table td:not(.method-col) {
+            text-align: center;
+          }
+          .academic-table tbody tr {
+            border-bottom: 1px solid #ddd;
+          }
+          .academic-table tbody tr:last-child {
+            border-bottom: 2px solid #333;
+          }
+          .academic-table .highlight-row {
+            background-color: #f0f0f0;
+          }
+          .academic-table .midrule {
+            border-bottom: 1px solid #333;
+          }
+          .small-text {
+            font-size: 0.85em;
+          }
+        </style>
+
+        <!--/ Quantitative Results. -->
+
       </div>
     </div>
-    <!--/ Concurrent Work. -->
+    <!--/ Results. -->
+
+
+
 
   </div>
 </section>
 
 
+<section class="section" id="References" style="padding-top: 3rem;">
+  <div class="container is-max-desktop content">
+    <h2 class="title">References</h2>
+    <div class="content">
+      <p>
+        <strong>PMCNet:</strong> Ahyun Seo, Woohyeon Shim, Minsu Cho. "Learning to discover reflection symmetry via polar matching convolution." In <em>Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)</em>, 2021, pp. 1285-1294.
+      </p>
+      <p>
+        <strong>EquiSym:</strong> Ahyun Seo, Byungjin Kim, Suha Kwak, Minsu Cho. "Reflection and rotation symmetry detection via equivariant learning." In <em>Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</em>, 2022, pp. 9539-9548.
+      </p>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
+    <pre><code>@inproceedings{yu2025symdet,
+  author    = {Yu, Wongyun and Seo, Ahyun and Cho, Minsu},
+  title     = {Axis-level Symmetry Detection with Group-Equivariant Representation},
+  booktitle = {International Conference on Computer Vision (ICCV)},
+  year      = {2025},
 }</code></pre>
   </div>
 </section>
@@ -456,29 +509,11 @@
 
 <footer class="footer">
   <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link"
-         href="./static/videos/nerfies_paper.pdf">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
     <div class="columns is-centered">
       <div class="column is-8">
-        <div class="content">
+        <div class="content has-text-centered">
           <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            This means you are free to borrow the <a
-              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
-            we just ask that you link back to this page in the footer.
-            Please remember to remove the analytics code included in the header of the website which
-            you do not want on your website.
+            Website template adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
           </p>
         </div>
       </div>
