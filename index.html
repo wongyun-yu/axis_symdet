@@ -118,21 +118,31 @@
   <div class="container is-max-desktop">
     <div class="hero-body" style="padding-bottom: 0.5rem; padding-top: 0.5rem;">
       <div class="columns is-centered" style="margin-bottom: 5px; margin-top: 2px;">
-        <div class="column is-half" style="padding: 0 2px;">
+        <div class="column is-half" style="padding: 0 8px;">
           <div class="has-text-centered">
-            <p class="subtitle is-5" style="margin-bottom: 2px; margin-top: 0;"><strong>Ours</strong></p>
-            <div id="rotation-viewer-ours" style="text-align: center; margin-bottom: 0; margin-top: 0;">
-              <img id="rotation-image-ours" src="./static/images/rotation_ours/000.png" alt="Ours 360-degree rotation demonstration" 
-                   style="width: 100%; max-width: 900px; cursor: pointer; margin-top: 0; margin-bottom: 0;">
+            <div class="method-label" style="color: #4a4a4a; padding: 8px 0; font-weight: 600; font-size: 1rem; margin-bottom: 8px; display: block;">
+              Ours
+            </div>
+            <div id="rotation-viewer-ours" style="text-align: center; margin-bottom: 0; margin-top: 0; position: relative;">
+              <div style="width: 420px; height: 420px; background: #fff; margin: 0 auto; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                <img id="rotation-image-ours" src="./static/images/rotation_ours/000.png" alt="Ours 360-degree rotation demonstration" 
+                     style="width: 520px; height: 520px; object-fit: cover; object-position: center 50%; border-radius: 50%; background: #fff; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); clip-path: inset(15% 0 15% 0 round 50%);">
+                <div style="position: absolute; left: 50%; top: 50%; width: 380px; height: 380px; border-radius: 50%; border: 3px solid #e8e8e8; pointer-events: none; transform: translate(-50%, -50%);"></div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="column is-half" style="padding: 0 2px;">
+        <div class="column is-half" style="padding: 0 8px;">
           <div class="has-text-centered">
-            <p class="subtitle is-5" style="margin-bottom: 2px; margin-top: 0;"><strong>EquiSym(Coming Soon)</strong></p>
-            <div id="rotation-viewer-equisym" style="text-align: center; margin-bottom: 0; margin-top: 0;">
-              <img id="rotation-image-equisym" src="./static/images/rotation_equisym/000.png" alt="EquiSym 360-degree rotation demonstration" 
-                   style="width: 100%; max-width: 900px; cursor: pointer; margin-top: 0; margin-bottom: 0;">
+            <div class="method-label" style="color: #4a4a4a; padding: 8px 0; font-weight: 600; font-size: 1rem; margin-bottom: 8px; display: block;">
+              EquiSym <span style="font-size: 0.8rem; opacity: 0.7; font-weight: normal;">(Coming Soon)</span>
+            </div>
+            <div id="rotation-viewer-equisym" style="text-align: center; margin-bottom: 0; margin-top: 0; position: relative;">
+              <div style="width: 420px; height: 420px; background: #fff; margin: 0 auto; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                <img id="rotation-image-equisym" src="./static/images/rotation_equisym/000.png" alt="EquiSym 360-degree rotation demonstration" 
+                     style="width: 520px; height: 520px; object-fit: cover; object-position: center 50%; border-radius: 50%; background: #fff; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); clip-path: inset(15% 0 15% 0 round 50%);">
+                <div style="position: absolute; left: 50%; top: 50%; width: 400px; height: 400px; border-radius: 50%; border: 3px solid #e8e8e8; pointer-events: none; transform: translate(-50%, -50%);"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -477,6 +487,25 @@
           .small-text {
             font-size: 0.85em;
           }
+          
+          /* Method label styling */
+          .method-label {
+            transition: all 0.3s ease;
+          }
+          
+          /* Image hover effects */
+          #rotation-image-ours:hover,
+          #rotation-image-equisym:hover {
+            transform: scale(1.02);
+            border-color: #d0d0d0;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+            border-width: 4px;
+          }
+          
+          /* Subtle hover effect for method labels */
+          .method-label:hover {
+            color: #2c2c2c;
+          }
         </style>
 
         <!--/ Quantitative Results. -->
@@ -618,7 +647,7 @@
       function animate() {
         // 매 프레임마다 상태 로그 (디버깅용)
         if (currentFrame % 30 === 0) { // 30프레임마다 로그 (0.5초에 한 번)
-          console.log('ANIMATE CHECK - frame:', currentFrame, 'isPlaying:', isPlaying, 'isDragging:', isDragging, 'isPausedAfterDrag:', isPausedAfterDrag, 'condition:', isPlaying && !isDragging && !isPausedAfterDrag);
+          console.log('ANIMATE CHECK - frame:', currentFrame, 'isPlaying:', isPlaying, 'isDragging:', isDragging, 'isPausedAfterDrag:', isPausedAfterDrag);
         }
         
         if (isPlaying && !isDragging && !isPausedAfterDrag) {
