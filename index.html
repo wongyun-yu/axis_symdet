@@ -26,8 +26,6 @@
         rel="stylesheet">
 
   <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
 
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
@@ -37,8 +35,6 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
 </head>
 <body>
@@ -68,18 +64,19 @@
           <h1 class="title is-1 publication-title">Axis-level Symmetry Detection with Group-Equivariant Representation</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block" style="margin-right: 40px;">
-              <a href="https://201820894.github.io">Wongyun Yu</a><sup>2</sup></span>
+              <a href="https://201820894.github.io">Wongyun Yu</a><sup>1</sup></span>
             <span class="author-block" style="margin-right: 40px;">
-              <a href="https://ahyunseo.github.io">Ahyun Seo</a><sup>1</sup></span>
+              <a href="https://ahyunseo.github.io">Ahyun Seo</a><sup>2</sup></span>
             <span class="author-block">
               <a href="https://cvlab.postech.ac.kr/~mcho/">Minsu Cho</a><sup>1,2</sup>
             </span>
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>Department of Computer Science and Engineering, POSTECH, South Korea</span>
             <br>
-            <span class="author-block"><sup>2</sup>Graduate School of Artificial Intelligence, POSTECH, South Korea</span>
+            <span class="author-block"><sup>1</sup>Graduate School of Artificial Intelligence, POSTECH, South Korea</span>
+            <br>
+            <span class="author-block"><sup>2</sup>Department of Computer Science and Engineering, POSTECH, South Korea</span>
           </div>
 
           <div class="is-size-6 publication-authors" style="text-align: center; margin: 15px 0;">
@@ -117,18 +114,39 @@
   </div>
 </section>
 
-<section class="hero teaser" style="padding-bottom: 1rem;">
+<section class="hero teaser" style="padding-bottom: 0.5rem;">
   <div class="container is-max-desktop">
-    <div class="hero-body" style="padding-bottom: 1rem;">
-      <img src="./static/images/rotation_robustness.png" alt="Method robustness demonstration" style="width: 100%; max-width: 600px; display: block; margin: 0 auto 30px auto;">
-      <h2 class="subtitle has-text-centered">
-        Our method predicts axis-level rotation and reflection symmetries in complex scenes,
-        maintaining consistent detection across different input rotations through group-equivariant representations.
-      </h2>
+    <div class="hero-body" style="padding-bottom: 0.5rem; padding-top: 0.5rem;">
+      <div class="columns is-centered" style="margin-bottom: 5px; margin-top: 2px;">
+        <div class="column is-half" style="padding: 0 2px;">
+          <div class="has-text-centered">
+            <p class="subtitle is-5" style="margin-bottom: 2px; margin-top: 0;"><strong>Ours</strong></p>
+            <div id="rotation-viewer-ours" style="text-align: center; margin-bottom: 0; margin-top: 0;">
+              <img id="rotation-image-ours" src="./static/images/rotation_ours/000.png" alt="Ours 360-degree rotation demonstration" 
+                   style="width: 100%; max-width: 900px; cursor: pointer; margin-top: 0; margin-bottom: 0;">
+            </div>
+          </div>
+        </div>
+        <div class="column is-half" style="padding: 0 2px;">
+          <div class="has-text-centered">
+            <p class="subtitle is-5" style="margin-bottom: 2px; margin-top: 0;"><strong>EquiSym(Coming Soon)</strong></p>
+            <div id="rotation-viewer-equisym" style="text-align: center; margin-bottom: 0; margin-top: 0;">
+              <img id="rotation-image-equisym" src="./static/images/rotation_equisym/000.png" alt="EquiSym 360-degree rotation demonstration" 
+                   style="width: 100%; max-width: 900px; cursor: pointer; margin-top: 0; margin-bottom: 0;">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
+<div class="has-text-centered" style="margin-top: 10px; font-size: 0.9rem; color: #666;">
+  Click to pause/resume • Drag to rotate manually
+</div>
+<h2 class="subtitle has-text-centered" style="margin-top: 5px; margin-bottom: 0; max-width: 900px; margin-left: auto; margin-right: auto; line-height: 1.5; font-size: 0.9rem;">
+  Our method predicts axis-level <b>rotation</b> and <b>reflection symmetries</b> in complex scenes, maintaining consistent detection across different input rotations through <b>group-equivariant representations</b>.
+</h2>
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -514,6 +532,342 @@
     </div>
   </div>
 </footer>
+
+  <!-- 360-degree rotation script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const rotationImageOurs = document.getElementById('rotation-image-ours');
+      const rotationImageEquisym = document.getElementById('rotation-image-equisym');
+      const totalFrames = 360;
+      let currentFrame = 0;
+      let isPlaying = true;
+      let isDragging = false;
+      let isPausedAfterDrag = false; // 드래그 후 정지 상태를 별도로 관리
+      let startFrame = 0;
+      let animationId;
+
+      // Preload images for smooth playback
+      const imagesOurs = [];
+      const imagesEquisym = [];
+      let loadedImagesOurs = 0;
+      let loadedImagesEquisym = 0;
+      
+      function preloadImages() {
+        // Preload Ours images
+        for (let i = 0; i < totalFrames; i++) {
+          const img = new Image();
+          const frameNumber = i.toString().padStart(3, '0');
+          img.src = `./static/images/rotation_ours/${frameNumber}.png`;
+          img.onload = () => {
+            loadedImagesOurs++;
+            if (loadedImagesOurs === totalFrames && loadedImagesEquisym === totalFrames) {
+              console.log('All images loaded! Starting animation...');
+              setPlayingState(true);
+              currentFrame = 0;
+              updateFrame();
+              startAnimation();
+            }
+          };
+          img.onerror = () => {
+            console.warn(`Failed to load Ours image: ${frameNumber}.png`);
+            loadedImagesOurs++;
+            if (loadedImagesOurs === totalFrames && loadedImagesEquisym === totalFrames) {
+              setPlayingState(true);
+              currentFrame = 0;
+              updateFrame();
+              startAnimation();
+            }
+          };
+          imagesOurs[i] = img;
+        }
+        
+        // Preload EquiSym images
+        for (let i = 0; i < totalFrames; i++) {
+          const img = new Image();
+          const frameNumber = i.toString().padStart(3, '0');
+          img.src = `./static/images/rotation_equisym/${frameNumber}.png`;
+          img.onload = () => {
+            loadedImagesEquisym++;
+            if (loadedImagesOurs === totalFrames && loadedImagesEquisym === totalFrames) {
+              setPlayingState(true);
+              currentFrame = 0;
+              updateFrame();
+              startAnimation();
+            }
+          };
+          img.onerror = () => {
+            console.warn(`Failed to load EquiSym image: ${frameNumber}.png`);
+            loadedImagesEquisym++;
+            if (loadedImagesOurs === totalFrames && loadedImagesEquisym === totalFrames) {
+              setPlayingState(true);
+              currentFrame = 0;
+              updateFrame();
+              startAnimation();
+            }
+          };
+          imagesEquisym[i] = img;
+        }
+      }
+
+      function updateFrame() {
+        const frameNumber = currentFrame.toString().padStart(3, '0');
+        rotationImageOurs.src = `./static/images/rotation_ours/${frameNumber}.png`;
+        rotationImageEquisym.src = `./static/images/rotation_equisym/${frameNumber}.png`;
+      }
+
+      function animate() {
+        // 매 프레임마다 상태 로그 (디버깅용)
+        if (currentFrame % 30 === 0) { // 30프레임마다 로그 (0.5초에 한 번)
+          console.log('ANIMATE CHECK - frame:', currentFrame, 'isPlaying:', isPlaying, 'isDragging:', isDragging, 'isPausedAfterDrag:', isPausedAfterDrag, 'condition:', isPlaying && !isDragging && !isPausedAfterDrag);
+        }
+        
+        if (isPlaying && !isDragging && !isPausedAfterDrag) {
+          currentFrame = (currentFrame + 1) % totalFrames;
+          updateFrame();
+          if (currentFrame % 60 === 0) { // 60프레임마다 로그 (1초에 한 번)
+            console.log('Animation RUNNING - frame:', currentFrame, 'isPlaying:', isPlaying, 'isDragging:', isDragging, 'isPausedAfterDrag:', isPausedAfterDrag);
+          }
+        } else {
+          if (currentFrame % 60 === 0) { // 60프레임마다 로그 (1초에 한 번)
+            console.log('Animation PAUSED - frame:', currentFrame, 'isPlaying:', isPlaying, 'isDragging:', isDragging, 'isPausedAfterDrag:', isPausedAfterDrag);
+          }
+        }
+        animationId = requestAnimationFrame(animate);
+      }
+
+      function startAnimation() {
+        if (animationId) {
+          cancelAnimationFrame(animationId);
+        }
+        animate();
+      }
+
+      // --- 상태 관리 함수 ---
+      function setPlayingState(playing) {
+        console.log('setPlayingState called with:', playing, 'current isPlaying:', isPlaying, 'current isPausedAfterDrag:', isPausedAfterDrag);
+        isPlaying = playing;
+        if (isPlaying) {
+          isPausedAfterDrag = false; // 재생 시 드래그 후 정지 상태 해제
+          rotationImageOurs.style.opacity = '1';
+          rotationImageEquisym.style.opacity = '1';
+        } else {
+          rotationImageOurs.style.opacity = '0.9';
+          rotationImageEquisym.style.opacity = '0.9';
+          // isPausedAfterDrag는 여기서 변경하지 않음 - 호출자가 관리
+        }
+        console.log('After setPlayingState, isPlaying is now:', isPlaying, 'isPausedAfterDrag:', isPausedAfterDrag);
+      }
+
+      // --- 클릭 이벤트: 토글 ---
+      rotationImageOurs.addEventListener('click', function(e) {
+        console.log('Ours clicked! Current isPlaying:', isPlaying, 'isPausedAfterDrag:', isPausedAfterDrag, 'ignoreNextClick:', ignoreNextClick);
+        if (ignoreNextClick) {
+          console.log('Ignoring click after drag');
+          ignoreNextClick = false; // 다음 클릭부터는 정상 처리
+          e.stopPropagation();
+          return;
+        }
+        
+        if (isPausedAfterDrag) {
+          // 드래그 후 정지 상태에서는 클릭 시 토글 모드로 전환 (재생 시작)
+          console.log('Resuming from drag pause state - starting toggle mode');
+          isPlaying = true;
+          isPausedAfterDrag = false; // 드래그 후 정지 상태 해제
+          rotationImageOurs.style.opacity = '1';
+          rotationImageEquisym.style.opacity = '1';
+        } else {
+          // 일반 상태에서는 토글
+          setPlayingState(!isPlaying);
+        }
+        console.log('After click isPlaying:', isPlaying, 'isPausedAfterDrag:', isPausedAfterDrag);
+        e.stopPropagation();
+      });
+      rotationImageEquisym.addEventListener('click', function(e) {
+        console.log('EquiSym clicked! Current isPlaying:', isPlaying, 'isPausedAfterDrag:', isPausedAfterDrag, 'ignoreNextClick:', ignoreNextClick);
+        if (ignoreNextClick) {
+          console.log('Ignoring click after drag');
+          ignoreNextClick = false; // 다음 클릭부터는 정상 처리
+          e.stopPropagation();
+          return;
+        }
+        
+        if (isPausedAfterDrag) {
+          // 드래그 후 정지 상태에서는 클릭 시 토글 모드로 전환 (재생 시작)
+          console.log('Resuming from drag pause state - starting toggle mode');
+          isPlaying = true;
+          isPausedAfterDrag = false; // 드래그 후 정지 상태 해제
+          rotationImageOurs.style.opacity = '1';
+          rotationImageEquisym.style.opacity = '1';
+        } else {
+          // 일반 상태에서는 토글
+          setPlayingState(!isPlaying);
+        }
+        console.log('After click isPlaying:', isPlaying, 'isPausedAfterDrag:', isPausedAfterDrag);
+        e.stopPropagation();
+      });
+
+      // --- 드래그 시작 ---
+      let activeDragImage = null;
+      let dragStartAngle = 0;
+      let dragStartFrame = 0;
+      let dragStartX = 0;
+      let dragStartY = 0;
+      let isDraggingStarted = false;
+      let ignoreNextClick = false; // 드래그 후 클릭 무시 플래그
+      
+      rotationImageOurs.addEventListener('mousedown', function(e) {
+        console.log('=== Ours mousedown ===');
+        dragStartX = e.clientX;
+        dragStartY = e.clientY;
+        dragStartFrame = currentFrame;
+        activeDragImage = rotationImageOurs;
+        const rect = rotationImageOurs.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        dragStartAngle = Math.atan2(e.clientY - centerY, e.clientX - centerX);
+        console.log('Drag start - X:', dragStartX, 'Y:', dragStartY, 'Frame:', dragStartFrame);
+        e.preventDefault();
+        e.stopPropagation();
+      });
+
+      rotationImageEquisym.addEventListener('mousedown', function(e) {
+        console.log('=== EquiSym mousedown ===');
+        dragStartX = e.clientX;
+        dragStartY = e.clientY;
+        dragStartFrame = currentFrame;
+        activeDragImage = rotationImageEquisym;
+        const rect = rotationImageEquisym.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        dragStartAngle = Math.atan2(e.clientY - centerY, e.clientX - centerX);
+        console.log('Drag start - X:', dragStartX, 'Y:', dragStartY, 'Frame:', dragStartFrame);
+        e.preventDefault();
+        e.stopPropagation();
+      });
+
+      document.addEventListener('mousemove', function(e) {
+        if (!isDraggingStarted && (dragStartX !== 0 || dragStartY !== 0)) {
+          const distance = Math.sqrt((e.clientX - dragStartX) ** 2 + (e.clientY - dragStartY) ** 2);
+          if (distance > 5) { // 5픽셀 이상 이동하면 드래그 시작
+            console.log('=== Drag started ===');
+            console.log('Distance moved:', distance);
+            isDragging = true;
+            isDraggingStarted = true;
+            isPlaying = false; // 직접 설정
+            rotationImageOurs.style.opacity = '0.9';
+            rotationImageEquisym.style.opacity = '0.9';
+            rotationImageOurs.style.cursor = 'grabbing';
+            rotationImageEquisym.style.cursor = 'grabbing';
+            console.log('Drag started - isDragging:', isDragging, 'isDraggingStarted:', isDraggingStarted);
+          }
+        }
+        
+        if (isDragging && isDraggingStarted && activeDragImage) {
+          const rect = activeDragImage.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
+          const currentAngle = Math.atan2(e.clientY - centerY, e.clientX - centerX);
+          let angleDiff = currentAngle - dragStartAngle;
+          if (angleDiff > Math.PI) angleDiff -= 2 * Math.PI;
+          if (angleDiff < -Math.PI) angleDiff += 2 * Math.PI;
+          const degreesDiff = (angleDiff * 180 / Math.PI);
+          currentFrame = (dragStartFrame - Math.round(degreesDiff)) % 360;
+          if (currentFrame < 0) currentFrame += 360;
+          updateFrame();
+        }
+      });
+
+      document.addEventListener('mouseup', function() {
+        console.log('=== Mouseup event ===');
+        console.log('isDragging:', isDragging, 'isDraggingStarted:', isDraggingStarted);
+        if (isDragging) {
+          console.log('=== Drag ended, setting to pause state ===');
+          console.log('Before - isPlaying:', isPlaying, 'isPausedAfterDrag:', isPausedAfterDrag);
+          isDragging = false;
+          isDraggingStarted = false;
+          activeDragImage = null;
+          isPausedAfterDrag = true; // 드래그 후 정지 상태 설정
+          isPlaying = false; // 직접 설정 (setPlayingState 호출하지 않음)
+          rotationImageOurs.style.opacity = '0.9';
+          rotationImageEquisym.style.opacity = '0.9';
+          rotationImageOurs.style.cursor = 'pointer';
+          rotationImageEquisym.style.cursor = 'pointer';
+          ignoreNextClick = true; // 다음 클릭 이벤트 무시
+          console.log('After - isPlaying:', isPlaying, 'isPausedAfterDrag:', isPausedAfterDrag, 'ignoreNextClick:', ignoreNextClick);
+        }
+        // 드래그 시작 좌표 초기화
+        dragStartX = 0;
+        dragStartY = 0;
+        console.log('=== Mouseup completed ===');
+      });
+
+      // --- 터치도 동일하게 ---
+      let activeTouchImage = null;
+      let touchStartAngle = 0;
+      let touchStartFrame = 0;
+      rotationImageOurs.addEventListener('touchstart', function(e) {
+        isDragging = true;
+        activeTouchImage = rotationImageOurs;
+        isPlaying = false; // 직접 설정
+        rotationImageOurs.style.opacity = '0.9';
+        rotationImageEquisym.style.opacity = '0.9';
+        const rect = rotationImageOurs.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        touchStartAngle = Math.atan2(e.touches[0].clientY - centerY, e.touches[0].clientX - centerX);
+        touchStartFrame = currentFrame;
+        e.preventDefault();
+        e.stopPropagation();
+      });
+      rotationImageEquisym.addEventListener('touchstart', function(e) {
+        isDragging = true;
+        activeTouchImage = rotationImageEquisym;
+        isPlaying = false; // 직접 설정
+        rotationImageOurs.style.opacity = '0.9';
+        rotationImageEquisym.style.opacity = '0.9';
+        const rect = rotationImageEquisym.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        touchStartAngle = Math.atan2(e.touches[0].clientY - centerY, e.touches[0].clientX - centerX);
+        touchStartFrame = currentFrame;
+        e.preventDefault();
+        e.stopPropagation();
+      });
+      document.addEventListener('touchmove', function(e) {
+        if (isDragging && activeTouchImage) {
+          const rect = activeTouchImage.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
+          const currentAngle = Math.atan2(e.touches[0].clientY - centerY, e.touches[0].clientX - centerX);
+          let angleDiff = currentAngle - touchStartAngle;
+          if (angleDiff > Math.PI) angleDiff -= 2 * Math.PI;
+          if (angleDiff < -Math.PI) angleDiff += 2 * Math.PI;
+          const degreesDiff = (angleDiff * 180 / Math.PI);
+          currentFrame = (touchStartFrame - Math.round(degreesDiff)) % 360;
+          if (currentFrame < 0) currentFrame += 360;
+          updateFrame();
+        }
+      });
+      document.addEventListener('touchend', function() {
+        if (isDragging) {
+          console.log('Touch ended, setting to pause state');
+          isDragging = false;
+          activeTouchImage = null;
+          isPausedAfterDrag = true; // 터치 후 정지 상태 설정
+          isPlaying = false; // 직접 설정
+          rotationImageOurs.style.opacity = '0.9';
+          rotationImageEquisym.style.opacity = '0.9';
+        }
+      });
+
+      // --- 최초 로딩시 ---
+      setPlayingState(true);
+      
+      // Start preloading images
+      console.log('Starting image preload...');
+      preloadImages();
+    });
+  </script>
 
 </body>
 </html>

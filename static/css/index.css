@@ -110,7 +110,8 @@ body {
 .publication-body img {
 }
 
-.results-carousel {
+/* Remove carousel CSS since no carousel elements exist */
+/* .results-carousel {
   overflow: hidden;
 }
 
@@ -125,33 +126,4 @@ body {
 
 .results-carousel video {
   margin: 0;
-}
-
-
-.interpolation-panel {
-  background: #f5f5f5;
-  border-radius: 10px;
-}
-
-.interpolation-panel .interpolation-image {
-  width: 100%;
-  border-radius: 5px;
-}
-
-.interpolation-video-column {
-}
-
-.interpolation-panel .slider {
-  margin: 0 !important;
-}
-
-.interpolation-panel .slider {
-  margin: 0 !important;
-}
-
-#interpolation-image-wrapper {
-  width: 100%;
-}
-#interpolation-image-wrapper img {
-  border-radius: 5px;
-}
+} */
