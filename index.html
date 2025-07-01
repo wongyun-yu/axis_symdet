@@ -580,6 +580,8 @@
       const imagesEquisym = [];
       let loadedImagesOurs = 0;
       let loadedImagesEquisym = 0;
+      let firstFrameLoaded = false;
+      let firstFrameLoadedEqui = false;
       
       function preloadImages() {
         // Preload Ours images
@@ -589,27 +591,23 @@
           img.src = `./static/images/rotation_ours/${frameNumber}.png`;
           img.onload = () => {
             loadedImagesOurs++;
-            if (loadedImagesOurs === totalFrames && loadedImagesEquisym === totalFrames) {
-              console.log('All images loaded! Starting animation...');
-              setPlayingState(true);
-              currentFrame = 0;
-              updateFrame();
-              startAnimation();
+            imagesOurs[i] = img;
+            if (!firstFrameLoaded && i === 0) {
+              firstFrameLoaded = true;
+              if (firstFrameLoadedEqui) {
+                setPlayingState(true);
+                currentFrame = 0;
+                updateFrame();
+                startAnimation();
+              }
             }
           };
           img.onerror = () => {
-            console.warn(`Failed to load Ours image: ${frameNumber}.png`);
             loadedImagesOurs++;
-            if (loadedImagesOurs === totalFrames && loadedImagesEquisym === totalFrames) {
-              setPlayingState(true);
-              currentFrame = 0;
-              updateFrame();
-              startAnimation();
-            }
+            imagesOurs[i] = null;
           };
           imagesOurs[i] = img;
         }
-        
         // Preload EquiSym images
         for (let i = 0; i < totalFrames; i++) {
           const img = new Image();
@@ -617,22 +615,20 @@
           img.src = `./static/images/rotation_equisym/${frameNumber}.png`;
           img.onload = () => {
             loadedImagesEquisym++;
-            if (loadedImagesOurs === totalFrames && loadedImagesEquisym === totalFrames) {
-              setPlayingState(true);
-              currentFrame = 0;
-              updateFrame();
-              startAnimation();
+            imagesEquisym[i] = img;
+            if (!firstFrameLoadedEqui && i === 0) {
+              firstFrameLoadedEqui = true;
+              if (firstFrameLoaded) {
+                setPlayingState(true);
+                currentFrame = 0;
+                updateFrame();
+                startAnimation();
+              }
             }
           };
           img.onerror = () => {
-            console.warn(`Failed to load EquiSym image: ${frameNumber}.png`);
             loadedImagesEquisym++;
-            if (loadedImagesOurs === totalFrames && loadedImagesEquisym === totalFrames) {
-              setPlayingState(true);
-              currentFrame = 0;
-              updateFrame();
-              startAnimation();
-            }
+            imagesEquisym[i] = null;
           };
           imagesEquisym[i] = img;
         }
