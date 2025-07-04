@@ -117,33 +117,68 @@
 <section class="hero teaser" style="padding-bottom: 0.5rem;">
   <div class="container is-max-desktop">
     <div class="hero-body" style="padding-bottom: 0.5rem; padding-top: 0.5rem;">
-      <div class="columns is-centered" style="margin-bottom: 5px; margin-top: 2px;">
+      <!-- First Row -->
+      <div class="columns is-centered" style="margin-bottom: 10px; margin-top: 2px;">
         <div class="column is-half" style="padding: 0 8px;">
           <div class="has-text-centered">
-            <div class="method-label" style="color: #4a4a4a; padding: 8px 0; font-weight: 600; font-size: 1.3rem; margin-bottom: 8px; display: block;">
+            <div class="method-label" style="color: #4a4a4a; padding: 8px 0; font-weight: 600; font-size: 1.2rem; margin-bottom: 8px; display: block;">
               EquiSym
             </div>
-            <div id="rotation-viewer-ours" style="text-align: center; margin-bottom: 0; margin-top: 0; position: relative;">
-              <div style="width: 420px; height: 420px; background: #fff; margin: 0 auto; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;">
-                <div class="spinner" id="ours-spinner"></div>
+            <div id="rotation-viewer-equisym" style="text-align: center; margin-bottom: 0; margin-top: 0; position: relative;">
+              <div style="width: 320px; height: 320px; background: #fff; margin: 0 auto; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                <div class="spinner" id="equisym-spinner"></div>
                 <img id="rotation-image-equisym" src="./static/images/rotation_equisym/000.png" alt="EquiSym 360-degree rotation demonstration" 
-                     style="width: 520px; height: 520px; object-fit: cover; object-position: center 50%; border-radius: 50%; background: #fff; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); clip-path: inset(15% 0 15% 0 round 50%); display: none;">
-                <div style="position: absolute; left: 50%; top: 50%; width: 380px; height: 380px; border-radius: 50%; border: 3px solid #e8e8e8; pointer-events: none; transform: translate(-50%, -50%);"></div>
+                     style="width: 460px; height: 460px; object-fit: cover; object-position: center 50%; border-radius: 50%; background: #fff; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); clip-path: inset(15% 0 15% 0 round 50%); display: none;">
+                <div style="position: absolute; left: 50%; top: 50%; width: 322px; height: 322px; border-radius: 50%; border: 3px solid #e8e8e8; pointer-events: none; transform: translate(-50%, -50%);"></div>
               </div>
             </div>
           </div>
         </div>
         <div class="column is-half" style="padding: 0 8px;">
           <div class="has-text-centered">
-            <div class="method-label" style="color: #4a4a4a; padding: 8px 0; font-weight: 600; font-size: 1.3rem; margin-bottom: 8px; display: block;">
+            <div class="method-label" style="color: #4a4a4a; padding: 8px 0; font-weight: 600; font-size: 1.2rem; margin-bottom: 8px; display: block;">
               Ours
             </div>
-            <div id="rotation-viewer-equisym" style="text-align: center; margin-bottom: 0; margin-top: 0; position: relative;">
-              <div style="width: 420px; height: 420px; background: #fff; margin: 0 auto; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;">
-                <div class="spinner" id="equisym-spinner"></div>
+            <div id="rotation-viewer-ours" style="text-align: center; margin-bottom: 0; margin-top: 0; position: relative;">
+              <div style="width: 320px; height: 320px; background: #fff; margin: 0 auto; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                <div class="spinner" id="ours-spinner"></div>
                 <img id="rotation-image-ours" src="./static/images/rotation_ours/000.png" alt="Ours 360-degree rotation demonstration" 
-                     style="width: 520px; height: 520px; object-fit: cover; object-position: center 50%; border-radius: 50%; background: #fff; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); clip-path: inset(15% 0 15% 0 round 50%); display: none;">
-                <div style="position: absolute; left: 50%; top: 50%; width: 380px; height: 380px; border-radius: 50%; border: 3px solid #e8e8e8; pointer-events: none; transform: translate(-50%, -50%);"></div>
+                     style="width: 460px; height: 460px; object-fit: cover; object-position: center 50%; border-radius: 50%; background: #fff; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); clip-path: inset(15% 0 15% 0 round 50%); display: none;">
+                <div style="position: absolute; left: 50%; top: 50%; width: 322px; height: 322px; border-radius: 50%; border: 3px solid #e8e8e8; pointer-events: none; transform: translate(-50%, -50%);"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Second Row -->
+      <div class="columns is-centered" style="margin-bottom: 5px; margin-top: 0px;">
+        <div class="column is-half" style="padding: 0 8px;">
+          <div class="has-text-centered">
+            <div class="method-label" style="color: #4a4a4a; padding: 8px 0; font-weight: 600; font-size: 1.2rem; margin-bottom: 8px; display: block;">
+              EquiSym (stabilized)
+            </div>
+            <div id="rotation-viewer-equisym-stabilized" style="text-align: center; margin-bottom: 0; margin-top: 0; position: relative;">
+              <div style="width: 320px; height: 320px; background: #fff; margin: 0 auto; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                <div class="spinner" id="equisym-stabilized-spinner"></div>
+                <img id="rotation-image-equisym-stabilized" src="./static/images/stabilized_rotation_equisym/000.png" alt="EquiSym Stabilized 360-degree rotation demonstration" 
+                     style="width: 460px; height: 460px; object-fit: cover; object-position: center 50%; border-radius: 50%; background: #fff; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); clip-path: inset(15% 0 15% 0 round 50%); display: none;">
+                <div style="position: absolute; left: 50%; top: 50%; width: 322px; height: 322px; border-radius: 50%; border: 3px solid #e8e8e8; pointer-events: none; transform: translate(-50%, -50%);"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column is-half" style="padding: 0 8px;">
+          <div class="has-text-centered">
+            <div class="method-label" style="color: #4a4a4a; padding: 8px 0; font-weight: 600; font-size: 1.2rem; margin-bottom: 8px; display: block;">
+              Ours (stabilized)
+            </div>
+            <div id="rotation-viewer-ours-stabilized" style="text-align: center; margin-bottom: 0; margin-top: 0; position: relative;">
+              <div style="width: 320px; height: 320px; background: #fff; margin: 0 auto; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                <div class="spinner" id="ours-stabilized-spinner"></div>
+                <img id="rotation-image-ours-stabilized" src="./static/images/stabilized_rotation_ours/000.png" alt="Ours Stabilized 360-degree rotation demonstration" 
+                     style="width: 460px; height: 460px; object-fit: cover; object-position: center 50%; border-radius: 50%; background: #fff; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); clip-path: inset(15% 0 15% 0 round 50%); display: none;">
+                <div style="position: absolute; left: 50%; top: 50%; width: 322px; height: 322px; border-radius: 50%; border: 3px solid #e8e8e8; pointer-events: none; transform: translate(-50%, -50%);"></div>
               </div>
             </div>
           </div>
@@ -159,7 +194,7 @@
   </span>
 </div>
 <h2 class="subtitle has-text-centered" style="margin-top: 5px; margin-bottom: 0; max-width: 900px; margin-left: auto; margin-right: auto; line-height: 1.5; font-size: 0.9rem;">
-  Our method predicts <b>axis-level symmetries</b> in complex scenes, maintaining consistent detection across different input rotations through group-equivariant representations. The above videos demonstrate reflection symmetry axis only.
+  Our method predicts <b>axis-level symmetries</b> in complex scenes, maintaining consistent detection across different input rotations through group-equivariant representations. The videos demonstrate reflection symmetry detection: top row shows original outputs while bottom row shows stabilized outputs (rotated back to original orientation for clearer visualization).
 </h2>
 
 <section class="section">
@@ -587,76 +622,97 @@
   <!-- 360-degree rotation script -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      // Get all rotation images
       const rotationImageOurs = document.getElementById('rotation-image-ours');
       const rotationImageEquisym = document.getElementById('rotation-image-equisym');
+      const rotationImageOursStabilized = document.getElementById('rotation-image-ours-stabilized');
+      const rotationImageEquisymStabilized = document.getElementById('rotation-image-equisym-stabilized');
+      
+      const allImages = [rotationImageOurs, rotationImageEquisym, rotationImageOursStabilized, rotationImageEquisymStabilized];
+      
       const totalFrames = 360;
       let currentFrame = 0;
       let isPlaying = true;
       let isDragging = false;
-      let isPausedAfterDrag = false; // 드래그 후 정지 상태를 별도로 관리
+      let isPausedAfterDrag = false;
       let startFrame = 0;
       let animationId;
 
       // Preload images for smooth playback
-      const imagesOurs = [];
-      const imagesEquisym = [];
-      let loadedImagesOurs = 0;
-      let loadedImagesEquisym = 0;
-      let firstFrameLoaded = false;
-      let firstFrameLoadedEqui = false;
+      const imageSets = {
+        ours: [],
+        equisym: [],
+        oursStabilized: [],
+        equisymStabilized: []
+      };
+      
+      let loadedCounts = {
+        ours: 0,
+        equisym: 0,
+        oursStabilized: 0,
+        equisymStabilized: 0
+      };
+      
+      let firstFrameLoaded = {
+        ours: false,
+        equisym: false,
+        oursStabilized: false,
+        equisymStabilized: false
+      };
       
       function preloadImages() {
-        // Preload Ours images
-        for (let i = 0; i < totalFrames; i++) {
-          const img = new Image();
-          const frameNumber = i.toString().padStart(3, '0');
-          img.src = `./static/images/rotation_ours/${frameNumber}.png`;
-          img.onload = () => {
-            loadedImagesOurs++;
-            imagesOurs[i] = img;
-            if (!firstFrameLoaded && i === 0) {
-              firstFrameLoaded = true;
-              document.getElementById('ours-spinner').style.display = 'none';
-              document.getElementById('rotation-image-ours').style.display = '';
-              if (firstFrameLoadedEqui) {
-                setPlayingState(true);
-                currentFrame = 0;
-                updateFrame();
-                startAnimation();
+        const imagePaths = {
+          ours: './static/images/rotation_ours/',
+          equisym: './static/images/rotation_equisym/',
+          oursStabilized: './static/images/stabilized_rotation_ours/',
+          equisymStabilized: './static/images/stabilized_rotation_equisym/'
+        };
+        
+        const spinnerIds = {
+          ours: 'ours-spinner',
+          equisym: 'equisym-spinner',
+          oursStabilized: 'ours-stabilized-spinner',
+          equisymStabilized: 'equisym-stabilized-spinner'
+        };
+        
+        const imageIds = {
+          ours: 'rotation-image-ours',
+          equisym: 'rotation-image-equisym',
+          oursStabilized: 'rotation-image-ours-stabilized',
+          equisymStabilized: 'rotation-image-equisym-stabilized'
+        };
+        
+        Object.keys(imagePaths).forEach(setName => {
+          for (let i = 0; i < totalFrames; i++) {
+            const img = new Image();
+            const frameNumber = i.toString().padStart(3, '0');
+            img.src = `${imagePaths[setName]}${frameNumber}.png`;
+            img.onload = () => {
+              loadedCounts[setName]++;
+              imageSets[setName][i] = img;
+              if (!firstFrameLoaded[setName] && i === 0) {
+                firstFrameLoaded[setName] = true;
+                document.getElementById(spinnerIds[setName]).style.display = 'none';
+                document.getElementById(imageIds[setName]).style.display = '';
+                checkAllFirstFramesLoaded();
               }
-            }
-          };
-          img.onerror = () => {
-            loadedImagesOurs++;
-            imagesOurs[i] = null;
-          };
-          imagesOurs[i] = img;
-        }
-        // Preload EquiSym images
-        for (let i = 0; i < totalFrames; i++) {
-          const img = new Image();
-          const frameNumber = i.toString().padStart(3, '0');
-          img.src = `./static/images/rotation_equisym/${frameNumber}.png`;
-          img.onload = () => {
-            loadedImagesEquisym++;
-            imagesEquisym[i] = img;
-            if (!firstFrameLoadedEqui && i === 0) {
-              firstFrameLoadedEqui = true;
-              document.getElementById('equisym-spinner').style.display = 'none';
-              document.getElementById('rotation-image-equisym').style.display = '';
-              if (firstFrameLoaded) {
-                setPlayingState(true);
-                currentFrame = 0;
-                updateFrame();
-                startAnimation();
-              }
-            }
-          };
-          img.onerror = () => {
-            loadedImagesEquisym++;
-            imagesEquisym[i] = null;
-          };
-          imagesEquisym[i] = img;
+            };
+            img.onerror = () => {
+              loadedCounts[setName]++;
+              imageSets[setName][i] = null;
+            };
+            imageSets[setName][i] = img;
+          }
+        });
+      }
+      
+      function checkAllFirstFramesLoaded() {
+        const allLoaded = Object.values(firstFrameLoaded).every(loaded => loaded);
+        if (allLoaded) {
+          setPlayingState(true);
+          currentFrame = 0;
+          updateFrame();
+          startAnimation();
         }
       }
 
@@ -664,6 +720,8 @@
         const frameNumber = currentFrame.toString().padStart(3, '0');
         rotationImageOurs.src = `./static/images/rotation_ours/${frameNumber}.png`;
         rotationImageEquisym.src = `./static/images/rotation_equisym/${frameNumber}.png`;
+        rotationImageOursStabilized.src = `./static/images/stabilized_rotation_ours/${frameNumber}.png`;
+        rotationImageEquisymStabilized.src = `./static/images/stabilized_rotation_equisym/${frameNumber}.png`;
       }
 
       function animate() {
@@ -698,64 +756,42 @@
         console.log('setPlayingState called with:', playing, 'current isPlaying:', isPlaying, 'current isPausedAfterDrag:', isPausedAfterDrag);
         isPlaying = playing;
         if (isPlaying) {
-          isPausedAfterDrag = false; // 재생 시 드래그 후 정지 상태 해제
-          rotationImageOurs.style.opacity = '1';
-          rotationImageEquisym.style.opacity = '1';
+          isPausedAfterDrag = false;
+          allImages.forEach(img => img.style.opacity = '1');
         } else {
-          rotationImageOurs.style.opacity = '0.9';
-          rotationImageEquisym.style.opacity = '0.9';
-          // isPausedAfterDrag는 여기서 변경하지 않음 - 호출자가 관리
+          allImages.forEach(img => img.style.opacity = '0.9');
         }
         console.log('After setPlayingState, isPlaying is now:', isPlaying, 'isPausedAfterDrag:', isPausedAfterDrag);
       }
 
       // --- 클릭 이벤트: 토글 ---
-      rotationImageOurs.addEventListener('click', function(e) {
-        console.log('Ours clicked! Current isPlaying:', isPlaying, 'isPausedAfterDrag:', isPausedAfterDrag, 'ignoreNextClick:', ignoreNextClick);
+      
+      function handleImageClick(imageName, e) {
+        console.log(`${imageName} clicked! Current isPlaying:`, isPlaying, 'isPausedAfterDrag:', isPausedAfterDrag, 'ignoreNextClick:', ignoreNextClick);
         if (ignoreNextClick) {
           console.log('Ignoring click after drag');
-          ignoreNextClick = false; // 다음 클릭부터는 정상 처리
+          ignoreNextClick = false;
           e.stopPropagation();
           return;
         }
         
         if (isPausedAfterDrag) {
-          // 드래그 후 정지 상태에서는 클릭 시 토글 모드로 전환 (재생 시작)
           console.log('Resuming from drag pause state - starting toggle mode');
           isPlaying = true;
-          isPausedAfterDrag = false; // 드래그 후 정지 상태 해제
-          rotationImageOurs.style.opacity = '1';
-          rotationImageEquisym.style.opacity = '1';
+          isPausedAfterDrag = false;
+          allImages.forEach(img => img.style.opacity = '1');
         } else {
-          // 일반 상태에서는 토글
           setPlayingState(!isPlaying);
         }
         console.log('After click isPlaying:', isPlaying, 'isPausedAfterDrag:', isPausedAfterDrag);
         e.stopPropagation();
-      });
-      rotationImageEquisym.addEventListener('click', function(e) {
-        console.log('EquiSym clicked! Current isPlaying:', isPlaying, 'isPausedAfterDrag:', isPausedAfterDrag, 'ignoreNextClick:', ignoreNextClick);
-        if (ignoreNextClick) {
-          console.log('Ignoring click after drag');
-          ignoreNextClick = false; // 다음 클릭부터는 정상 처리
-          e.stopPropagation();
-          return;
-        }
-        
-        if (isPausedAfterDrag) {
-          // 드래그 후 정지 상태에서는 클릭 시 토글 모드로 전환 (재생 시작)
-          console.log('Resuming from drag pause state - starting toggle mode');
-          isPlaying = true;
-          isPausedAfterDrag = false; // 드래그 후 정지 상태 해제
-          rotationImageOurs.style.opacity = '1';
-          rotationImageEquisym.style.opacity = '1';
-        } else {
-          // 일반 상태에서는 토글
-          setPlayingState(!isPlaying);
-        }
-        console.log('After click isPlaying:', isPlaying, 'isPausedAfterDrag:', isPausedAfterDrag);
-        e.stopPropagation();
-      });
+      }
+      
+      // Add click events to all images
+      rotationImageOurs.addEventListener('click', (e) => handleImageClick('Ours', e));
+      rotationImageEquisym.addEventListener('click', (e) => handleImageClick('EquiSym', e));
+      rotationImageOursStabilized.addEventListener('click', (e) => handleImageClick('Ours Stabilized', e));
+      rotationImageEquisymStabilized.addEventListener('click', (e) => handleImageClick('EquiSym Stabilized', e));
 
       // --- 드래그 시작 ---
       let activeDragImage = null;
@@ -764,37 +800,28 @@
       let dragStartX = 0;
       let dragStartY = 0;
       let isDraggingStarted = false;
-      let ignoreNextClick = false; // 드래그 후 클릭 무시 플래그
+      let ignoreNextClick = false;
       
-      rotationImageOurs.addEventListener('mousedown', function(e) {
-        console.log('=== Ours mousedown ===');
+      function handleMouseDown(imageName, imageElement, e) {
+        console.log(`=== ${imageName} mousedown ===`);
         dragStartX = e.clientX;
         dragStartY = e.clientY;
         dragStartFrame = currentFrame;
-        activeDragImage = rotationImageOurs;
-        const rect = rotationImageOurs.getBoundingClientRect();
+        activeDragImage = imageElement;
+        const rect = imageElement.getBoundingClientRect();
         const centerX = rect.left + rect.width / 2;
         const centerY = rect.top + rect.height / 2;
         dragStartAngle = Math.atan2(e.clientY - centerY, e.clientX - centerX);
         console.log('Drag start - X:', dragStartX, 'Y:', dragStartY, 'Frame:', dragStartFrame);
         e.preventDefault();
         e.stopPropagation();
-      });
-
-      rotationImageEquisym.addEventListener('mousedown', function(e) {
-        console.log('=== EquiSym mousedown ===');
-        dragStartX = e.clientX;
-        dragStartY = e.clientY;
-        dragStartFrame = currentFrame;
-        activeDragImage = rotationImageEquisym;
-        const rect = rotationImageEquisym.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        dragStartAngle = Math.atan2(e.clientY - centerY, e.clientX - centerX);
-        console.log('Drag start - X:', dragStartX, 'Y:', dragStartY, 'Frame:', dragStartFrame);
-        e.preventDefault();
-        e.stopPropagation();
-      });
+      }
+      
+      // Add mousedown events to all images
+      rotationImageOurs.addEventListener('mousedown', (e) => handleMouseDown('Ours', rotationImageOurs, e));
+      rotationImageEquisym.addEventListener('mousedown', (e) => handleMouseDown('EquiSym', rotationImageEquisym, e));
+      rotationImageOursStabilized.addEventListener('mousedown', (e) => handleMouseDown('Ours Stabilized', rotationImageOursStabilized, e));
+      rotationImageEquisymStabilized.addEventListener('mousedown', (e) => handleMouseDown('EquiSym Stabilized', rotationImageEquisymStabilized, e));
 
       document.addEventListener('mousemove', function(e) {
         if (!isDraggingStarted && (dragStartX !== 0 || dragStartY !== 0)) {
@@ -804,11 +831,11 @@
             console.log('Distance moved:', distance);
             isDragging = true;
             isDraggingStarted = true;
-            isPlaying = false; // 직접 설정
-            rotationImageOurs.style.opacity = '0.9';
-            rotationImageEquisym.style.opacity = '0.9';
-            rotationImageOurs.style.cursor = 'grabbing';
-            rotationImageEquisym.style.cursor = 'grabbing';
+            isPlaying = false;
+            allImages.forEach(img => {
+              img.style.opacity = '0.9';
+              img.style.cursor = 'grabbing';
+            });
             console.log('Drag started - isDragging:', isDragging, 'isDraggingStarted:', isDraggingStarted);
           }
         }
@@ -837,13 +864,13 @@
           isDragging = false;
           isDraggingStarted = false;
           activeDragImage = null;
-          isPausedAfterDrag = true; // 드래그 후 정지 상태 설정
-          isPlaying = false; // 직접 설정 (setPlayingState 호출하지 않음)
-          rotationImageOurs.style.opacity = '0.9';
-          rotationImageEquisym.style.opacity = '0.9';
-          rotationImageOurs.style.cursor = 'pointer';
-          rotationImageEquisym.style.cursor = 'pointer';
-          ignoreNextClick = true; // 다음 클릭 이벤트 무시
+          isPausedAfterDrag = true;
+          isPlaying = false;
+          allImages.forEach(img => {
+            img.style.opacity = '0.9';
+            img.style.cursor = 'pointer';
+          });
+          ignoreNextClick = true;
           console.log('After - isPlaying:', isPlaying, 'isPausedAfterDrag:', isPausedAfterDrag, 'ignoreNextClick:', ignoreNextClick);
         }
         // 드래그 시작 좌표 초기화
@@ -852,38 +879,30 @@
         console.log('=== Mouseup completed ===');
       });
 
-      // --- 터치도 동일하게 ---
+      // --- 터치 이벤트 ---
       let activeTouchImage = null;
       let touchStartAngle = 0;
       let touchStartFrame = 0;
-      rotationImageOurs.addEventListener('touchstart', function(e) {
+      
+      function handleTouchStart(imageName, imageElement, e) {
         isDragging = true;
-        activeTouchImage = rotationImageOurs;
-        isPlaying = false; // 직접 설정
-        rotationImageOurs.style.opacity = '0.9';
-        rotationImageEquisym.style.opacity = '0.9';
-        const rect = rotationImageOurs.getBoundingClientRect();
+        activeTouchImage = imageElement;
+        isPlaying = false;
+        allImages.forEach(img => img.style.opacity = '0.9');
+        const rect = imageElement.getBoundingClientRect();
         const centerX = rect.left + rect.width / 2;
         const centerY = rect.top + rect.height / 2;
         touchStartAngle = Math.atan2(e.touches[0].clientY - centerY, e.touches[0].clientX - centerX);
         touchStartFrame = currentFrame;
         e.preventDefault();
         e.stopPropagation();
-      });
-      rotationImageEquisym.addEventListener('touchstart', function(e) {
-        isDragging = true;
-        activeTouchImage = rotationImageEquisym;
-        isPlaying = false; // 직접 설정
-        rotationImageOurs.style.opacity = '0.9';
-        rotationImageEquisym.style.opacity = '0.9';
-        const rect = rotationImageEquisym.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        touchStartAngle = Math.atan2(e.touches[0].clientY - centerY, e.touches[0].clientX - centerX);
-        touchStartFrame = currentFrame;
-        e.preventDefault();
-        e.stopPropagation();
-      });
+      }
+      
+      // Add touch events to all images
+      rotationImageOurs.addEventListener('touchstart', (e) => handleTouchStart('Ours', rotationImageOurs, e));
+      rotationImageEquisym.addEventListener('touchstart', (e) => handleTouchStart('EquiSym', rotationImageEquisym, e));
+      rotationImageOursStabilized.addEventListener('touchstart', (e) => handleTouchStart('Ours Stabilized', rotationImageOursStabilized, e));
+      rotationImageEquisymStabilized.addEventListener('touchstart', (e) => handleTouchStart('EquiSym Stabilized', rotationImageEquisymStabilized, e));
       document.addEventListener('touchmove', function(e) {
         if (isDragging && activeTouchImage) {
           const rect = activeTouchImage.getBoundingClientRect();
@@ -904,10 +923,9 @@
           console.log('Touch ended, setting to pause state');
           isDragging = false;
           activeTouchImage = null;
-          isPausedAfterDrag = true; // 터치 후 정지 상태 설정
-          isPlaying = false; // 직접 설정
-          rotationImageOurs.style.opacity = '0.9';
-          rotationImageEquisym.style.opacity = '0.9';
+          isPausedAfterDrag = true;
+          isPlaying = false;
+          allImages.forEach(img => img.style.opacity = '0.9');
         }
       });
 
