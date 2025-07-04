@@ -1,2 +1,6 @@
 .DS_store
 .idea
+static/images/rotation_ours_refrot/
+static/images/rotation_sequence_equisym_cropped/
+static/images/rotation_sequence_refonly/
+static/images/rotation_sequence_refonly_blackedge/
